@@ -304,7 +304,7 @@
       "url": "https://packages.unity.com"
     },
     "com.voxelis.voxelisx": {
-      "version": "file:F:/RP_Games/VoxelisX-family/VoxelisX",
+      "version": "file:../../VoxelisX-family/VoxelisX",
       "depth": 0,
       "source": "local",
       "dependencies": {
@@ -316,7 +316,7 @@
       }
     },
     "voxelis.unity.physics": {
-      "version": "file:F:/RP_Games/VoxelisX-family/Voxelis.Unity.Physics",
+      "version": "file:../../VoxelisX-family/Voxelis.Unity.Physics",
       "depth": 0,
       "source": "local",
       "dependencies": {
