@@ -73,3 +73,9 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 NSight/
+/[Pp]ackages/
+
+**/.DS_Store/
+.DS_Store
+mono_crash.*
+

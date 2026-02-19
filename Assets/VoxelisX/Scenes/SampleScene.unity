@@ -266,6 +266,7 @@ GameObject:
   - component: {fileID: 330585548}
   - component: {fileID: 330585549}
   - component: {fileID: 330585550}
+  - component: {fileID: 330585551}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -403,8 +404,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55e09c622ea03b645bd629414175b38b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 2
-  fastMovementSpeed: 10
+  movementSpeed: 10
+  fastMovementSpeed: 50
   freeLookSensitivity: 3
   zoomSensitivity: 10
   fastZoomSensitivity: 50
@@ -458,6 +459,18 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!114 &330585551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b301aec3fdc64d558799e7c8a5300e24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: voxelis.voxelisx::Test
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,7 +500,7 @@ Light:
   serializedVersion: 11
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 3
+  m_Intensity: 1.4
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -2033,7 +2046,9 @@ GameObject:
   - component: {fileID: 1323362752}
   - component: {fileID: 1323362755}
   - component: {fileID: 1323362753}
+  - component: {fileID: 1323362756}
   - component: {fileID: 1323362754}
+  - component: {fileID: 1323362757}
   m_Layer: 0
   m_Name: VoxelisX
   m_TagString: Untagged
@@ -2063,7 +2078,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1323362751}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 21d979c72cc16984587e02446140a1e7, type: 3}
   m_Name: 
@@ -2128,7 +2143,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: voxelis.voxelisx::Voxelis.VoxelisXWorld
   entities: []
   physicsWorld: {fileID: 1323362754}
+  rayCaster: {fileID: 330585549}
+  rayTracedRenderer: {fileID: 1323362753}
+  meshingRenderer: {fileID: 1323362756}
   targetTPS: 100
+--- !u!114 &1323362756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323362751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2399a0de5d4d45149496e2083b3f181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: voxelis.voxelisx::Voxelis.Rendering.Meshing.VoxelMeshRendererComponent
+  chunkSize: 32
+  material: {fileID: 2100000, guid: f1d0eaa48aa684e359fccb40c8db214a, type: 2}
+  trackedEntityCount: 0
+  sectorRendererCount: 0
+  regenerateAll: 0
+  autoTick: 0
+--- !u!114 &1323362757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323362751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71f98de5344e2492fa410f62446ac9e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: voxelis.voxelisx::VoxelisXDebugGUI
+  showOnStart: 1
+  toggleKey: 112
+  rayTracingRenderer: {fileID: 0}
+  meshRendererComponent: {fileID: 0}
+  showSectorBorders: 1
+  showBrickBorders: 1
+  sectorBorderColor: {r: 1, g: 0, b: 0, a: 1}
+  brickBorderColor: {r: 0, g: 1, b: 0, a: 1}
+  brickBorderColorDirty: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1335252741
 GameObject:
   m_ObjectHideFlags: 0
@@ -2345,6 +2402,7 @@ GameObject:
   - component: {fileID: 1417524161}
   - component: {fileID: 1417524160}
   - component: {fileID: 1417524164}
+  - component: {fileID: 1417524166}
   - component: {fileID: 1417524163}
   - component: {fileID: 1417524165}
   m_Layer: 0
@@ -2434,6 +2492,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorldUpdaterSample
   doTick: 0
+--- !u!114 &1417524166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417524158}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0f6f86841d24f719cbe0b58bb487ec4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  voxFilePath: Vox/#haunted_house.vox
 --- !u!1 &1481054655
 GameObject:
   m_ObjectHideFlags: 0
@@ -2627,7 +2698,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1693632873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2908,7 +2979,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1983184929
 Transform:
   m_ObjectHideFlags: 0

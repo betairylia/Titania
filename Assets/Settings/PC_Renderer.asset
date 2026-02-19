@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ae13139a64980e43843121a61fad6b5, type: 3}
   m_Name: VoxelisXRendererFeature
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   tracer: {fileID: 4807578003741378534, guid: 0a8898fad81af1f44a367cc11e23e37a, type: 3}
   postProcessMaterialFlip: {fileID: 2100000, guid: 8840ef036211180419e16f4e18e1b94d, type: 2}
   maximumAverageFrames: 0
@@ -44,7 +44,8 @@ MonoBehaviour:
   - {fileID: -8322510222249456412}
   - {fileID: 3465975686196549493}
   - {fileID: 7182994337520864743}
-  m_RendererFeatureMap: e48c43230c81808c75d7e2e7859e1930e7cd92f74a1faf63
+  - {fileID: 7169893456807014353}
+  m_RendererFeatureMap: e48c43230c81808c75d7e2e7859e1930e7cd92f74a1faf63d12f617a1c948063
   m_UseNativeRenderPass: 1
   xrSystemData: {fileID: 0}
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
@@ -91,6 +92,32 @@ MonoBehaviour:
   m_Precomputation: 0
   m_FallbackSkyMaterial: {fileID: 2100000, guid: 7c6697a3d51c9324c8e9ad3284a1ac04, type: 2}
   m_VolumetricCloudsMaterial: {fileID: 0}
+--- !u!114 &7169893456807014353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f62c9c65cf3354c93be831c8bc075510, type: 3}
+  m_Name: ScreenSpaceAmbientOcclusion
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.ScreenSpaceAmbientOcclusion
+  m_Active: 1
+  m_Settings:
+    AOMethod: 0
+    Downsample: 0
+    AfterOpaque: 1
+    Source: 1
+    NormalSamples: 1
+    Intensity: 0.65
+    DirectLightingStrength: 0.25
+    Radius: 0.6
+    Samples: 0
+    BlurQuality: 0
+    Falloff: 100
+    SampleCount: -1
 --- !u!114 &7182994337520864743
 MonoBehaviour:
   m_ObjectHideFlags: 0

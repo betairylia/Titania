@@ -3,48 +3,35 @@ using System.Collections.Generic;
 using Unity.Collections;
 using UnityEngine;
 using Voxelis;
+using Voxelis.Rendering.Meshing;
 using Voxelis.Simulation;
+using Vector3 = System.Numerics.Vector3;
 
 namespace Dynamics
 {
     public class TitaniaCore : MonoBehaviour
     {
-        private VoxelisXCoreWorld world;
-        private VoxelisXRenderer renderer;
-        private VoxelRayCast rayCaster;
+        private VoxelisXWorld world;
+        // private VoxelisXRenderer renderer;
+        // private VoxelMeshRendererComponent meshingRenderer;
+        // private VoxelRayCast rayCaster;
 
         [SerializeField] private bool doTick = false;
         
         void Start()
         {
-            world = VoxelisXCoreWorld.instance;
-            renderer = FindFirstObjectByType<VoxelisXRenderer>();
-            rayCaster = FindFirstObjectByType<VoxelRayCast>();
-
-            Tick();
+            world = (VoxelisXWorld)(VoxelisXWorld.instance);
+            // renderer = FindFirstObjectByType<VoxelisXRenderer>();
+            // meshingRenderer = FindFirstObjectByType<VoxelMeshRendererComponent>();
+            // rayCaster = FindFirstObjectByType<VoxelRayCast>();
+            
+            world.automataStage.RegisterHook(new WireWorld());
         }
         
         // TODO: FIXME: Implement proper input handling and change ticking to FixedUpdate
         // public void FixedUpdate()
         public void Update()
         {
-            if (doTick) Tick();
-        }
-
-        public void Tick()
-        {
-            // Handle player inputs
-            rayCaster.Tick();
-            
-            // Tick voxel entities
-            foreach (var entity in world.AllEntities)
-            {
-                // TODO: Better ways?
-                // entity.SendMessage("Tick");
-            }
-
-            // Update renderer
-            renderer.Tick();
         }
 
         private List<VoxelCollisionSolver.ContactPoint> contacts = new();
