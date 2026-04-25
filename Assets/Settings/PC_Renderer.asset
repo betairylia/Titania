@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ae13139a64980e43843121a61fad6b5, type: 3}
   m_Name: VoxelisXRendererFeature
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1
   tracer: {fileID: 4807578003741378534, guid: 0a8898fad81af1f44a367cc11e23e37a, type: 3}
   postProcessMaterialFlip: {fileID: 2100000, guid: 8840ef036211180419e16f4e18e1b94d, type: 2}
   maximumAverageFrames: 0
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af24e90db4bf58443aff8888b8b7e207, type: 3}
   m_Name: VolumetricCloudsURP
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   material: {fileID: 2100000, guid: 3748131af20412e478461c6445c73923, type: 2}
   renderingDebugger: 0
   reflectionProbe: 0

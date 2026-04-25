@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Unity.Cinemachine;
 using UnityEngine;
 
 /// <summary>
@@ -49,8 +50,22 @@ public class FreeCam : MonoBehaviour
     /// </summary>
     private bool looking = false;
 
+    private ICinemachineCamera cam;
+    private CinemachineBrain brain;
+    
+    void Awake()
+    {
+        cam = GetComponent<ICinemachineCamera>();
+        brain = FindFirstObjectByType<CinemachineBrain>();
+    }
+
     void Update()
     {
+        if (cam != null && brain.ActiveVirtualCamera != cam)
+        {
+            return;
+        }
+        
         var fastMode = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
         var movementSpeed = fastMode ? this.fastMovementSpeed : this.movementSpeed;
 

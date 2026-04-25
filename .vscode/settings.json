@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Titania.sln"
+    "dotnet.defaultSolution": "Titania.slnx"
 }
