@@ -9,10 +9,10 @@ namespace Dynamics
 {
     public static class WireWorldStates
     {
-        public const uint Empty = 0;
-        public const uint Conductor = 1;
-        public const uint ElectronHead = 2;
-        public const uint ElectronTail = 3;
+        public const ushort Empty = 0;
+        public const ushort Conductor = 20;
+        public const ushort ElectronHead = 65484;
+        public const ushort ElectronTail = 52478;
 
         public static readonly Block EmptyBlock = default;
         public static readonly Block ConductorBlock = new Block(Conductor);
@@ -70,17 +70,14 @@ namespace Dynamics
     public struct WireWorldJob : IJobParallelForDefer
     {
         public NativeArray<VoxelisXWorld.BrickInfo> brickInfos;
+        [ReadOnly] public AutomataReadContext ctx;
 
         public void Execute(int index)
         {
             VoxelisXWorld.BrickInfo brickInfo = brickInfos[index];
             SectorHandle workingSector = brickInfo.Sector;
 
-            SectorNeighborhoodReaderHelper readerHelper =
-                new SectorNeighborhoodReaderHelper(
-                    brickInfo.Sector,
-                    brickInfo.Neighbors
-                );
+            VoxelNeighborhoodReader readerHelper = ctx.CreateReader(brickInfo);
 
             for (int x = 0; x < 8; x++)
             {
@@ -89,7 +86,7 @@ namespace Dynamics
                     for (int z = 0; z < 8; z++)
                     {
                         int3 blockPos = brickInfo.BrickOrigin + new int3(x, y, z);
-                        Block currentBlock = readerHelper.GetBlock(blockPos);
+                        Block currentBlock = readerHelper.GetLocalBlock(blockPos);
 
                         workingSector.SetBlock(blockPos.x, blockPos.y, blockPos.z, NextState(currentBlock.id, blockPos, readerHelper));
                     }
@@ -97,7 +94,7 @@ namespace Dynamics
             }
         }
 
-        private static Block NextState(uint currentId, int3 blockPos, SectorNeighborhoodReaderHelper readerHelper)
+        private static Block NextState(ushort currentId, int3 blockPos, VoxelNeighborhoodReader readerHelper)
         {
             if (currentId == WireWorldStates.Empty)
             {
@@ -158,6 +155,7 @@ namespace Dynamics
             var job = new WireWorldJob
             {
                 brickInfos = inputs.BricksRequiredUpdate.AsDeferredJobArray(),
+                ctx = inputs.ReadContext
             };
             handle = job.Schedule(inputs.BricksRequiredUpdate, 32, chained);
 

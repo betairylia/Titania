@@ -183,7 +183,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &174666786
 Transform:
   m_ObjectHideFlags: 0
@@ -1050,7 +1050,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &796669354
 Transform:
   m_ObjectHideFlags: 0
@@ -1186,7 +1186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &855064306
 Transform:
   m_ObjectHideFlags: 0
@@ -1273,7 +1273,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &904656433
 Transform:
   m_ObjectHideFlags: 0
@@ -1358,7 +1358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &912271789
 Transform:
   m_ObjectHideFlags: 0
@@ -1967,7 +1967,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1318984026
 Transform:
   m_ObjectHideFlags: 0
@@ -2113,6 +2113,7 @@ MonoBehaviour:
   velocityClippingFactor: 0.5
   inertiaScalingFactor: 0.75
   multiThreaded: 1
+  MarkContacts: 0
   dynamicbodies:
   - {fileID: 1693632876}
   - {fileID: 1229203755}
@@ -2146,7 +2147,8 @@ MonoBehaviour:
   rayCaster: {fileID: 330585549}
   rayTracedRenderer: {fileID: 1323362753}
   meshingRenderer: {fileID: 1323362756}
-  targetTPS: 40
+  targetTPS: 100
+  slowmo: 5
   freeze: 1
   isFirst: 1
 --- !u!114 &1323362756
@@ -2181,13 +2183,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: voxelis.voxelisx::VoxelisXDebugGUI
   showOnStart: 1
   toggleKey: 112
-  rayTracingRenderer: {fileID: 0}
-  meshRendererComponent: {fileID: 0}
+  rayTracingRenderer: {fileID: 1323362753}
+  meshRendererComponent: {fileID: 1323362756}
   showSectorBorders: 0
-  showBrickBorders: 0
-  sectorBorderColor: {r: 1, g: 0, b: 0, a: 1}
-  brickBorderColor: {r: 0, g: 1, b: 0, a: 1}
-  brickBorderColorDirty: {r: 0, g: 1, b: 1, a: 1}
+  showBrickBorders: 1
+  sectorBorderColor: {r: 0.3830188, g: 0.61723727, b: 1, a: 1}
+  brickBorderColor: {r: 0.0016874083, g: 0.2981131, b: 0.0016874083, a: 0.28235295}
+  brickBorderColorDirty: {r: 1, g: 0.48113203, b: 0.58140314, a: 1}
 --- !u!1 &1335252741
 GameObject:
   m_ObjectHideFlags: 0
@@ -2207,7 +2209,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1335252742
 Transform:
   m_ObjectHideFlags: 0
@@ -2540,7 +2542,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1481054656
 Transform:
   m_ObjectHideFlags: 0
@@ -3098,7 +3100,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1912396979
 Transform:
   m_ObjectHideFlags: 0
@@ -3181,7 +3183,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1983184929
 Transform:
   m_ObjectHideFlags: 0
@@ -3191,7 +3193,7 @@ Transform:
   m_GameObject: {fileID: 1983184928}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 200, z: 0}
+  m_LocalPosition: {x: 0, y: 20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
